@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: violet;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #fda6bc;
+    border: 5px solid white;
+    height: 275px;
+    width: 750px;
+    text-align: center;
+    margin: auto;
+  }
+  
+  input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff346;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(96, 255, 202);
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+  }
