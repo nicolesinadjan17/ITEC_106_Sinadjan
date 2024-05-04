@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibonacci Sequence</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(110, 233, 212);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-transform: uppercase;
+    }
+    .container {
+        background-color: #fffd7c;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        text-align: center;
+        color: rgb(255, 243, 243)
+    }
+    h2 {
+        color: #000000;
+    }
+    label {
+        font-weight: bold;
+        color: #000000;
+    }
+    input[type="text"] {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid rgb(158, 49, 158);
+        margin: 5px;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: rgb(165, 225, 243);
+        color: black;
+    
+    border: 2px solid black;       
+    border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #ff89e1;
+    }
+    #error {
+        color: red;
+        margin-top: 10px;
+    }
+    #output {
+        margin-top: 20px;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Generate Fibonacci Sequence</h2>
+    <div>
+        <label for="terms">Enter the number of terms:</label>
+                <br>
+        <input type="text" id="terms" placeholder="Enter a number less than 100">
+        <br>
+        <button onclick="generateSequence()">Generate</button>
+    </div>
+    <div id="error"></div>
+    <div id="output"></div>
+</div>
+
+    <script>
+        function generateSequence() {
+            var termsInput = document.getElementById('terms').value;
+            var outputDiv = document.getElementById('output');
+            var errorDiv = document.getElementById('error');
+            outputDiv.innerHTML = '';
+            errorDiv.innerHTML = '';
+
+            if (termsInput === '' || isNaN(termsInput)) {
+                errorDiv.innerHTML = 'Please enter a valid number.';
+                return;
+            }
+
+            var terms = parseInt(termsInput);
+
+            if (terms >= 100) {
+                errorDiv.innerHTML = 'Please enter a number less than 100.';
+                return;
+            }
+
+            var fibSequence = [];
+            var a = 0, b = 1;
+            fibSequence.push(a);
+            fibSequence.push(b);
+
+            for (var i = 2; i < terms; i++) {
+                var next = a + b;
+                a = b;
+                b = next;
+                fibSequence.push(next);
+            }
+
+            outputDiv.innerHTML = 'Fibonacci Sequence:<br>' + fibSequence.join(', ');
+        }
+</script>
+</body>
+</html>
